@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.manage.manage.dao.NoticeDao">
+
+    <select id="queryAllNotice" resultType="notice">
+        select id,notice,status,create_time as createTime from t_notice
+            order by status asc,create_time desc
+    </select>
+
+    <update id="updateAllStatus">
+        update t_notice set status=1
+    </update>
+
+    <update id="updateOneStatus" parameterType="Integer">
+        update t_notice set status=0 where id=#{id}
+    </update>
+
+</mapper>

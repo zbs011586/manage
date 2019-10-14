@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.manage.manage.dao.AdviceDao">
+
+    <select id="adviceList" resultType="advice">
+        selecr t1.id,t1.user_id as userId,t1.content,t1.create_time as createTime,t2.nickname as nickName
+        from t_advice t1 left t_user t2 on t1.user_id=t2.user_id
+        order by t1.create_time desc
+    </select>
+
+</mapper>

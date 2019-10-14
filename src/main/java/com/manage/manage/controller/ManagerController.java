@@ -1,7 +1,7 @@
 package com.manage.manage.controller;
 
-import com.manage.manage.bean.Manager;
 import com.manage.manage.commons.IgnoreAuth;
+import com.manage.manage.param.ManageParam;
 import com.manage.manage.service.ManagerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -19,8 +19,29 @@ public class ManagerController {
 
     @IgnoreAuth
     @PostMapping("/login")
-    public ResponseEntity login(@RequestBody Manager param){
+    public ResponseEntity login(@RequestBody ManageParam param){
         return ResponseEntity.ok(managerService.login(param.getUserName(),param.getPassword()));
     }
+
+    @PostMapping("/notice/create")
+    public ResponseEntity noticeCreate(@RequestBody ManageParam param){
+        return ResponseEntity.ok(managerService.noticeCreate(param.getNotice()));
+    }
+
+    @PostMapping("/notice/list")
+    public ResponseEntity noticeList(@RequestBody ManageParam param){
+        return ResponseEntity.ok(managerService.noticeList(param.getPageNum(),param.getPageSize()));
+    }
+
+    @PostMapping("/notice/set")
+    public ResponseEntity noticeSet(@RequestBody ManageParam param){
+        return ResponseEntity.ok(managerService.noticeSet(param.getId()));
+    }
+
+    @PostMapping("/advice/list")
+    public ResponseEntity adviceList(@RequestBody ManageParam param){
+        return ResponseEntity.ok(managerService.adviceList(param.getPageNum(),param.getPageSize()));
+    }
+
 
 }

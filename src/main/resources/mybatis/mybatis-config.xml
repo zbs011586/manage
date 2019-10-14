@@ -1,6 +1,8 @@
 <!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
     <typeAliases>
+        <typeAlias type="com.manage.manage.bean.Notice" alias="notice"/>
+        <typeAlias type="com.manage.manage.bean.Advice" alias="advice"/>
         <typeAlias alias="Integer" type="java.lang.Integer"/>
         <typeAlias alias="Long" type="java.lang.Long"/>
         <typeAlias alias="HashMap" type="java.util.HashMap"/>
