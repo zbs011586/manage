@@ -1,0 +1,29 @@
+server:
+  port: 9999
+  tomcat:
+    max-threads: 1000
+    max-connections: 10000
+    accept-count: 100
+
+spring:
+  servlet:
+    multipart:
+      enabled: true
+      max-file-size: 20MB
+      max-request-size: 200MB
+  application:
+    name: manage
+  datasource:
+    url: jdbc:mysql://47.98.139.95:3306/zhikou?useUnicode=true&characterEncoding=utf-8&useSSL=true&serverTimezone=UTC
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: root
+    password: ABCabc123!
+    jackson:
+      date-format: yyyy-MM-dd HH:mm:ss
+      time-zone: UTC
+mybatis:
+  config-location: classpath:mybatis/mybatis-config.xml
+  mapper-locations: classpath:mybatis/mapper/*.xml
+  output:
+    ansi:
+      enabled: detect
