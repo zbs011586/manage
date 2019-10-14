@@ -18,4 +18,4 @@ mvn clean
 echo '4. 打包...'
 mvn install
 echo '5. 后台运行jar包...'
-nohup java -jar target/zhikou-0.0.1-SNAPSHOT.jar > target/zhikou.log &
+nohup java -jar target/manage-0.0.1-SNAPSHOT.jar > target/manage.log &
