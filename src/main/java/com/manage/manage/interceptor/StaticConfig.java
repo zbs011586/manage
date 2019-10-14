@@ -24,6 +24,6 @@ public class StaticConfig implements WebMvcConfigurer {
     //配置静态资源的映射
     @Override
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
-        registry.addResourceHandler("/image/**").addResourceLocations("file:/root/zhiko/zhikou/image/");
+        registry.addResourceHandler("/image/**").addResourceLocations("file:/root/manage/image/");
     }
 }
