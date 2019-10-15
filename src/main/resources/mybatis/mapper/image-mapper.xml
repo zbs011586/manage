@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.manage.manage.dao.Image">
+<mapper namespace="com.manage.manage.dao.ImageDao">
 
    <select id="imageList" resultType="image">
        select id,path,status,rank,create_time as createTime
