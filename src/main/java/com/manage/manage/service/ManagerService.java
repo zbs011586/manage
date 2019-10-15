@@ -46,14 +46,16 @@ public class ManagerService {
             if (image1 != null && image2 != null) {
                 imageDao.updateSort3();
             }
-            imageDao.updateSort1();
+            if (image1 != null){
+                imageDao.updateSort1();
+            }
             imageDao.updateSort(id, 0, 1);
         } else if (sort == 2) {
             Image image2 = imageDao.queryBySort(2);
             if (image2 != null) {
                 imageDao.updateSort3();
+                imageDao.updateSort2();
             }
-            imageDao.updateSort2();
             imageDao.updateSort(id, 0, 2);
         } else if (sort == 3) {
             imageDao.updateSort3();
