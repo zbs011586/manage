@@ -19,7 +19,7 @@ public class Image {
 
     private Integer status;
 
-    private Integer rank;
+    private Integer sort;
 
     private Date createTime;
 

@@ -3,9 +3,9 @@
 <mapper namespace="com.manage.manage.dao.ImageDao">
 
    <select id="imageList" resultType="image">
-       select id,path,status,rank,create_time as createTime
+       select id,path,status,sort,create_time as createTime
        from t_image
-       order by rank asc,create_time desc
+       order by sort asc,create_time desc
    </select>
 
 </mapper>

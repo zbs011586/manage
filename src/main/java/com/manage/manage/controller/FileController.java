@@ -52,7 +52,7 @@ public class FileController {
         Image image = new Image();
         image.setPath(url);
         image.setStatus(1);
-        image.setRank(10);
+        image.setSort(10);
         image.setCreateTime(new Date());
         imageDao.insert(image);
         HttpResponse response = new HttpResponse(Constants.ErrorCode.OK, "轮播图上传成功");
