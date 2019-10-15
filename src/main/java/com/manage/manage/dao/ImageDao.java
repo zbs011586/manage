@@ -10,11 +10,11 @@ public interface ImageDao extends Mapper<Image> {
 
     List<Image> imageList();
 
+    Image queryBySort(@Param("sort")int sort);
+
     void updateSort(@Param("id")int id,@Param("status")int status,@Param("sort")int sort);
 
     void updateSort1();
-
     void updateSort2();
-
     void updateSort3();
 }
