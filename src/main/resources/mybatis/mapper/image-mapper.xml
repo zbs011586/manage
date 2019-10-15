@@ -10,7 +10,7 @@
 
     <select id="queryBySort" parameterType="Integer" resultType="image">
        select id,path,status,sort,create_time as createTime
-       from t_imag
+       from t_image
        where sort=#{sort}
     </select>
 
