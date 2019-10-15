@@ -17,9 +17,9 @@ public class Image {
 
     private String path;
 
-    private Integer status;
-
     private Integer sort;
+
+    private Integer status;
 
     private Date createTime;
 

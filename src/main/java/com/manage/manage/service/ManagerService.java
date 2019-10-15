@@ -39,6 +39,23 @@ public class ManagerService {
     @Autowired
     private ImageDao imageDao;
 
+    public HttpResponse imageSet(int id,int sort){
+        if (sort == 1){
+            imageDao.updateSort1();
+            imageDao.updateSort3();
+            imageDao.updateSort(id,0,1);
+        }else if (sort == 2){
+            imageDao.updateSort2();
+            imageDao.updateSort3();
+            imageDao.updateSort(id,0,2);
+        }else if (sort == 3){
+            imageDao.updateSort3();
+            imageDao.updateSort(id,0,3);
+        }else if (sort == 10){
+            imageDao.updateSort(id,1,10);
+        }
+        return HttpResponse.OK("设定轮播图成功");
+    }
 
     public HttpResponse imageList(int pageNum,int pageSize){
         PageHelper.startPage(pageNum, pageSize);

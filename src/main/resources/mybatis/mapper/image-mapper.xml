@@ -8,4 +8,26 @@
        order by sort asc,create_time desc
    </select>
 
+    <select id="queryBySort" parameterType="Integer" resultType="image">
+       select id,path,status,sort,create_time as createTime
+       from t_imag
+       where sort=#{sort}
+    </select>
+
+    <update id="updateSort">
+        update t_image set sort=#{sort},status=#{status} where id=#{id}
+    </update>
+
+    <update id="updateSort1">
+        update t_image set sort=sort+1 where sort in (1,2)
+    </update>
+
+    <update id="updateSort2">
+        update t_image set sort=sort+1 where sort=2
+    </update>
+
+    <update id="updateSort3">
+        update t_image set sort=10,status=1 where sort=3
+    </update>
+
 </mapper>

@@ -21,4 +21,6 @@ public class ManageParam {
 
     private int id;
 
+    private int sort;
+
 }
