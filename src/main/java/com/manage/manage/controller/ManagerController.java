@@ -53,4 +53,8 @@ public class ManagerController {
         return ResponseEntity.ok(managerService.imageSet(param.getId(),param.getSort()));
     }
 
+    @PostMapping("/image/preview")
+    public ResponseEntity imagePreview(){
+        return ResponseEntity.ok(managerService.imagePreview());
+    }
 }

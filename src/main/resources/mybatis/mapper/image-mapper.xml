@@ -30,4 +30,10 @@
         update t_image set sort=10,status=1 where sort=3
     </update>
 
+    <select id="imagePreview" resultType="image">
+       select id,path,status,sort,create_time as createTime
+       from t_image
+       order by sort asc where status=0
+   </select>
+
 </mapper>

@@ -17,4 +17,7 @@ public interface ImageDao extends Mapper<Image> {
     void updateSort1();
     void updateSort2();
     void updateSort3();
+
+    List<Image> imagePreview();
+
 }

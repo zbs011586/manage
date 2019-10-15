@@ -39,6 +39,11 @@ public class ManagerService {
     @Autowired
     private ImageDao imageDao;
 
+    public HttpResponse imagePreview(){
+        List<Image> images = imageDao.imagePreview();
+        return HttpResponse.OK(images);
+    }
+
     public HttpResponse imageSet(int id, int sort) {
         if (sort == 1) {
             Image image1 = imageDao.queryBySort(1);
