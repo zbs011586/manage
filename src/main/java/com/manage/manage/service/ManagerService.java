@@ -3,11 +3,13 @@ package com.manage.manage.service;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import com.manage.manage.bean.Advice;
+import com.manage.manage.bean.Image;
 import com.manage.manage.bean.Manager;
 import com.manage.manage.bean.Notice;
 import com.manage.manage.commons.Constants;
 import com.manage.manage.commons.HttpResponse;
 import com.manage.manage.dao.AdviceDao;
+import com.manage.manage.dao.ImageDao;
 import com.manage.manage.dao.ManagerDao;
 import com.manage.manage.dao.NoticeDao;
 import org.apache.commons.collections.MapUtils;
@@ -34,6 +36,15 @@ public class ManagerService {
     @Autowired
     private AdviceDao adviceDao;
 
+    @Autowired
+    private ImageDao imageDao;
+
+
+    public HttpResponse imageList(int pageNum,int pageSize){
+        PageHelper.startPage(pageNum, pageSize);
+        List<Image> images = imageDao.imageList();
+        return HttpResponse.OK(new PageInfo(images));
+    }
 
     public HttpResponse adviceList(int pageNum,int pageSize){
         PageHelper.startPage(pageNum, pageSize);

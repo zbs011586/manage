@@ -19,6 +19,8 @@ public class Image {
 
     private Integer status;
 
+    private Integer rank;
+
     private Date createTime;
 
 }

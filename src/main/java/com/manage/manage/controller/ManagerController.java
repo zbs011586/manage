@@ -43,5 +43,9 @@ public class ManagerController {
         return ResponseEntity.ok(managerService.adviceList(param.getPageNum(),param.getPageSize()));
     }
 
+    @PostMapping("/image/list")
+    public ResponseEntity imageList(@RequestBody ManageParam param){
+        return ResponseEntity.ok(managerService.imageList(param.getPageNum(),param.getPageSize()));
+    }
 
 }
