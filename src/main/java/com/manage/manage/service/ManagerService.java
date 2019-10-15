@@ -41,12 +41,12 @@ public class ManagerService {
 
     public HttpResponse imageSet(int id,int sort){
         if (sort == 1){
-            imageDao.updateSort1();
             imageDao.updateSort3();
+            imageDao.updateSort1();
             imageDao.updateSort(id,0,1);
         }else if (sort == 2){
-            imageDao.updateSort2();
             imageDao.updateSort3();
+            imageDao.updateSort2();
             imageDao.updateSort(id,0,2);
         }else if (sort == 3){
             imageDao.updateSort3();
