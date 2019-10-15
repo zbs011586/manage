@@ -32,8 +32,8 @@
 
     <select id="imagePreview" resultType="image">
        select id,path,status,sort,create_time as createTime
-       from t_image
-       order by sort asc where status=0
+       from t_image where status=0
+       order by sort asc
    </select>
 
 </mapper>
