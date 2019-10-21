@@ -48,7 +48,7 @@ public class FileController {
             e.printStackTrace();
         }
         //生成图片的静态资源访问路径
-        String url = "https://www.zhiko.store/back/image/" + newFileName;
+        String url = "http://www.asdc.shop/back/image/" + newFileName;
         Image image = new Image();
         image.setPath(url);
         image.setStatus(1);
