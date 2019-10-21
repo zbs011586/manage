@@ -6,6 +6,7 @@
         select message_id as messageId,user_name as userName,content,file_path as filePath,create_time as createTime
         from t_message
         where shop_status=1
+        order by create_time desc
     </select>
 
 </mapper>

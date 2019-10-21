@@ -1,5 +1,7 @@
 package com.manage.manage.service;
 
+import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONObject;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import com.manage.manage.bean.Advice;
@@ -50,7 +52,9 @@ public class ManagerService {
         HttpHeaders httpHeaders = new HttpHeaders();
         param.put("messageId", messageId);
         HttpEntity entity = new HttpEntity(param, httpHeaders);
-        template.postForEntity("https://www.zhiko.store/api/message/del", entity, String.class);
+        ResponseEntity<String> responseEntity = template.postForEntity("https://www.zhiko.store/api/message/del", entity, String.class);
+        JSONObject jsonObject = JSON.parseObject(responseEntity.getBody());
+        System.out.println(jsonObject.toJSONString());
         return HttpResponse.OK("删除成功");
     }
 
