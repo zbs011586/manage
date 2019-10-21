@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.manage.manage.dao.MessageDao">
+
+    <select id="messageList" resultType="HashMap">
+        select message_id as messageId,user_name as userName,content,file_path as filePath,create_time as createTime
+        from t_message
+        where shop_status=1
+    </select>
+
+</mapper>

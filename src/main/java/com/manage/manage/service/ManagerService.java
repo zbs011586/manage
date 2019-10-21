@@ -8,13 +8,14 @@ import com.manage.manage.bean.Manager;
 import com.manage.manage.bean.Notice;
 import com.manage.manage.commons.Constants;
 import com.manage.manage.commons.HttpResponse;
-import com.manage.manage.dao.AdviceDao;
-import com.manage.manage.dao.ImageDao;
-import com.manage.manage.dao.ManagerDao;
-import com.manage.manage.dao.NoticeDao;
+import com.manage.manage.dao.*;
 import org.apache.commons.collections.MapUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpEntity;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
+import org.springframework.web.client.RestTemplate;
 
 import java.util.Date;
 import java.util.HashMap;
@@ -38,6 +39,36 @@ public class ManagerService {
 
     @Autowired
     private ImageDao imageDao;
+
+    @Autowired
+    private MessageDao messageDao;
+
+    public HttpResponse messageDel(int messageId){
+        //调用小程序端的接口
+        RestTemplate template = new RestTemplate();
+        Map<String, Object> param = new HashMap<>();
+        HttpHeaders httpHeaders = new HttpHeaders();
+        param.put("messageId", messageId);
+        HttpEntity entity = new HttpEntity(param, httpHeaders);
+        template.postForEntity("https://www.zhiko.store/api/message/del", entity, String.class);
+        return HttpResponse.OK("删除成功");
+    }
+
+    public HttpResponse messageList(int pageNum,int pageSize){
+        PageHelper.startPage(pageNum, pageSize);
+        List<Map<String, Object>> maps = messageDao.messageList();
+        for (Map<String, Object> map : maps) {
+            //处理filePath
+            String filePath = MapUtils.getString(map,"filePath");
+            if (filePath != null && !"".equals(filePath)) {
+                String[] filePaths = filePath.split(",");
+                map.put("filePaths",filePaths);
+            } else {
+                map.put("filePaths",null);
+            }
+        }
+        return HttpResponse.OK(new PageInfo(maps));
+    }
 
     public HttpResponse imagePreview(){
         List<Image> images = imageDao.imagePreview();

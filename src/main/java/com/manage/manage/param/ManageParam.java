@@ -23,4 +23,5 @@ public class ManageParam {
 
     private int sort;
 
+    private int messageId;
 }

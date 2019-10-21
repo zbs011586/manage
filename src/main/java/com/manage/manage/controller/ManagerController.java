@@ -57,4 +57,15 @@ public class ManagerController {
     public ResponseEntity imagePreview(){
         return ResponseEntity.ok(managerService.imagePreview());
     }
+
+    @PostMapping("/message/list")
+    public ResponseEntity messageList(@RequestBody ManageParam param){
+        return ResponseEntity.ok(managerService.messageList(param.getPageNum(),param.getPageSize()));
+    }
+
+    @PostMapping("/message/del")
+    public ResponseEntity messageDel(@RequestBody ManageParam param){
+        return ResponseEntity.ok(managerService.messageDel(param.getMessageId()));
+    }
+
 }
