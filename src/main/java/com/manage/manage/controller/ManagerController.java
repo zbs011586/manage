@@ -10,6 +10,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.servlet.http.HttpServletRequest;
+
 @RequestMapping("/manage")
 @RestController
 public class ManagerController {
@@ -64,8 +66,9 @@ public class ManagerController {
     }
 
     @PostMapping("/message/del")
-    public ResponseEntity messageDel(@RequestBody ManageParam param){
-        return ResponseEntity.ok(managerService.messageDel(param.getMessageId()));
+    public ResponseEntity messageDel(@RequestBody ManageParam param, HttpServletRequest request){
+        String token = request.getHeader("token");
+        return ResponseEntity.ok(managerService.messageDel(param.getMessageId(),token));
     }
 
 }

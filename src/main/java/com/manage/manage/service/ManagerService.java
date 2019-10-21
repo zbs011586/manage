@@ -45,11 +45,12 @@ public class ManagerService {
     @Autowired
     private MessageDao messageDao;
 
-    public HttpResponse messageDel(int messageId){
+    public HttpResponse messageDel(int messageId,String token){
         //调用小程序端的接口
         RestTemplate template = new RestTemplate();
         Map<String, Object> param = new HashMap<>();
         HttpHeaders httpHeaders = new HttpHeaders();
+        httpHeaders.add("token",token);
         param.put("messageId", messageId);
         HttpEntity entity = new HttpEntity(param, httpHeaders);
         ResponseEntity<String> responseEntity = template.postForEntity("https://www.zhiko.store/api/message/del", entity, String.class);
