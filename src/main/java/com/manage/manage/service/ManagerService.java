@@ -4,10 +4,7 @@ import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
-import com.manage.manage.bean.Advice;
-import com.manage.manage.bean.Image;
-import com.manage.manage.bean.Manager;
-import com.manage.manage.bean.Notice;
+import com.manage.manage.bean.*;
 import com.manage.manage.commons.Constants;
 import com.manage.manage.commons.HttpResponse;
 import com.manage.manage.dao.*;
@@ -34,6 +31,9 @@ public class ManagerService {
     private TokenService tokenService;
 
     @Autowired
+    private TokenDao tokenDao;
+
+    @Autowired
     private NoticeDao noticeDao;
 
     @Autowired
@@ -44,6 +44,19 @@ public class ManagerService {
 
     @Autowired
     private MessageDao messageDao;
+
+    public HttpResponse tokenCheck(String token){
+        Token param = new Token();
+        param.setToken(token);
+        Token tokenOne = tokenDao.selectOne(param);
+        if (tokenOne == null){
+            return HttpResponse.ERROR(Constants.ErrorCode.TOKEN_ERROR,"token不存在");
+        }else {
+            HashMap map = new HashMap();
+            map.put("userId",tokenOne.getUserId());
+            return HttpResponse.OK(map);
+        }
+    }
 
     public HttpResponse messageDel(int messageId,String token){
         //调用小程序端的接口

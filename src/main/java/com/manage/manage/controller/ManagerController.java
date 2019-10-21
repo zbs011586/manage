@@ -71,4 +71,9 @@ public class ManagerController {
         return ResponseEntity.ok(managerService.messageDel(param.getMessageId(),token));
     }
 
+    @IgnoreAuth
+    @PostMapping("/token/check")
+    public ResponseEntity tokenCheck(@RequestBody ManageParam param){
+        return ResponseEntity.ok(managerService.tokenCheck(param.getToken()));
+    }
 }
