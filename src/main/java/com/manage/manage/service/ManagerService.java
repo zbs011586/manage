@@ -152,7 +152,9 @@ public class ManagerService {
         notice.setStatus(1);
         notice.setCreateTime(new Date());
         noticeDao.insert(notice);
-        return HttpResponse.OK("新增通知内容成功");
+        HashMap map = new HashMap();
+        map.put("id",notice.getId());
+        return HttpResponse.OK(map);
     }
 
     public HttpResponse login(String userName, String password) {
