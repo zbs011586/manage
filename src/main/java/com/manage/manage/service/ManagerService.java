@@ -94,8 +94,8 @@ public class ManagerService {
     }
 
     public HttpResponse imageSet(List<Integer> ids) {
+        imageDao.imageCancel();
         for (int i = 0; i < ids.size(); i++) {
-            imageDao.imageCancel();
             imageDao.imageSet(ids.get(i),i+1);
         }
         return HttpResponse.OK("设定轮播图成功");
