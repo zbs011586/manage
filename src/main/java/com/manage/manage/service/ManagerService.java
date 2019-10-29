@@ -93,29 +93,10 @@ public class ManagerService {
         return HttpResponse.OK(images);
     }
 
-    public HttpResponse imageSet(int id, int sort) {
-        if (sort == 1) {
-            Image image1 = imageDao.queryBySort(1);
-            Image image2 = imageDao.queryBySort(2);
-            if (image1 != null && image2 != null) {
-                imageDao.updateSort3();
-            }
-            if (image1 != null){
-                imageDao.updateSort1();
-            }
-            imageDao.updateSort(id, 0, 1);
-        } else if (sort == 2) {
-            Image image2 = imageDao.queryBySort(2);
-            if (image2 != null) {
-                imageDao.updateSort3();
-                imageDao.updateSort2();
-            }
-            imageDao.updateSort(id, 0, 2);
-        } else if (sort == 3) {
-            imageDao.updateSort3();
-            imageDao.updateSort(id, 0, 3);
-        } else if (sort == 10) {
-            imageDao.updateSort(id, 1, 10);
+    public HttpResponse imageSet(List<Integer> ids) {
+        for (int i = 0; i < ids.size(); i++) {
+            imageDao.imageCancel();
+            imageDao.imageSet(ids.get(i),i+1);
         }
         return HttpResponse.OK("设定轮播图成功");
     }
