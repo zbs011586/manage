@@ -45,6 +45,35 @@ public class ManagerService {
     @Autowired
     private MessageDao messageDao;
 
+    @Autowired
+    private QuestionDao questionDao;
+
+    public HttpResponse questionDelete(Question param){
+        Question one = new Question();
+        one.setId(param.getId());
+        Question question = questionDao.selectOne(one);
+        questionDao.delete(question);
+        return HttpResponse.OK("删除常见问题成功");
+    }
+
+    public HttpResponse questionUpdate(Question param){
+        Question one = new Question();
+        one.setId(param.getId());
+        Question question = questionDao.selectOne(one);
+        question.setQuestion(param.getQuestion());
+        question.setAnswer(param.getAnswer());
+        questionDao.updateByPrimaryKey(question);
+        return HttpResponse.OK("更新常见问题成功");
+    }
+    public HttpResponse questionSave(Question param){
+        Question question = new Question();
+        question.setQuestion(param.getQuestion());
+        question.setAnswer(param.getAnswer());
+        question.setCreateTime(new Date());
+        questionDao.insert(question);
+        return HttpResponse.OK("保存常见问题成功");
+    }
+
     public HttpResponse tokenCheck(String token){
         Token param = new Token();
         param.setToken(token);

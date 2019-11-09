@@ -1,5 +1,6 @@
 package com.manage.manage.controller;
 
+import com.manage.manage.bean.Question;
 import com.manage.manage.commons.IgnoreAuth;
 import com.manage.manage.param.ManageParam;
 import com.manage.manage.service.ManagerService;
@@ -75,5 +76,21 @@ public class ManagerController {
     @PostMapping("/token/check")
     public ResponseEntity tokenCheck(@RequestBody ManageParam param){
         return ResponseEntity.ok(managerService.tokenCheck(param.getToken()));
+    }
+
+
+    @PostMapping("/question/save")
+    public ResponseEntity questionSave(@RequestBody Question param){
+        return ResponseEntity.ok(managerService.questionSave(param));
+    }
+
+    @PostMapping("/question/update")
+    public ResponseEntity questionUpdate(@RequestBody Question param){
+        return ResponseEntity.ok(managerService.questionUpdate(param));
+    }
+
+    @PostMapping("/question/del")
+    public ResponseEntity questionDelete(@RequestBody Question param){
+        return ResponseEntity.ok(managerService.questionDelete(param));
     }
 }
