@@ -84,6 +84,11 @@ public class ManagerController {
         return ResponseEntity.ok(managerService.questionSave(param));
     }
 
+    @PostMapping("/question/list")
+    public ResponseEntity questionList(){
+        return ResponseEntity.ok(managerService.questionList());
+    }
+
     @PostMapping("/question/update")
     public ResponseEntity questionUpdate(@RequestBody Question param){
         return ResponseEntity.ok(managerService.questionUpdate(param));

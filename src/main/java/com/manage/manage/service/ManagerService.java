@@ -48,6 +48,10 @@ public class ManagerService {
     @Autowired
     private QuestionDao questionDao;
 
+    public HttpResponse questionList(){
+        return HttpResponse.OK(questionDao.selectAll());
+    }
+
     public HttpResponse questionDelete(Question param){
         Question one = new Question();
         one.setId(param.getId());
