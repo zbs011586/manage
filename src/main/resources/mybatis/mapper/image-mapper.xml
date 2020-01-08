@@ -13,7 +13,7 @@
     </update>
 
     <update id="imageSet">
-        update t_image set sort=#{sort},status=0 where id=#{id}
+        update t_image set sort=#{sort},status=0,url=#{url} where id=#{id}
     </update>
 
     <select id="imagePreview" resultType="image">

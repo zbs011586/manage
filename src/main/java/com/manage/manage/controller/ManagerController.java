@@ -1,5 +1,6 @@
 package com.manage.manage.controller;
 
+import com.alibaba.fastjson.JSONObject;
 import com.manage.manage.bean.Question;
 import com.manage.manage.commons.IgnoreAuth;
 import com.manage.manage.param.ManageParam;
@@ -12,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.servlet.http.HttpServletRequest;
+import java.util.List;
 
 @RequestMapping("/manage")
 @RestController
@@ -52,8 +54,8 @@ public class ManagerController {
     }
 
     @PostMapping("/image/set")
-    public ResponseEntity imageSet(@RequestBody ManageParam param){
-        return ResponseEntity.ok(managerService.imageSet(param.getIds()));
+    public ResponseEntity imageSet(@RequestBody List<JSONObject> param){
+        return ResponseEntity.ok(managerService.imageSet(param));
     }
 
     @PostMapping("/image/preview")

@@ -29,7 +29,5 @@ public class ManageParam {
 
     private String token;
 
-    private List<Integer> ids;
-
     private String url;
 }

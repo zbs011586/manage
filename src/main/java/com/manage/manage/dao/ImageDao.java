@@ -10,7 +10,7 @@ public interface ImageDao extends Mapper<Image> {
 
     List<Image> imageList();
 
-    void imageSet(@Param("id")int id,@Param("sort")int sort);
+    void imageSet(@Param("id")int id,@Param("sort")int sort,@Param("url") String url);
 
     void imageCancel();
 
