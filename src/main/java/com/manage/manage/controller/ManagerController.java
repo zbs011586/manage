@@ -58,6 +58,11 @@ public class ManagerController {
         return ResponseEntity.ok(managerService.imageSet(param.getIds()));
     }
 
+    @PostMapping("/image/del")
+    public ResponseEntity imageDel(@RequestBody ManageParam param){
+        return ResponseEntity.ok(managerService.imageDel(param.getId()));
+    }
+
     @PostMapping("/image/preview")
     public ResponseEntity imagePreview(){
         return ResponseEntity.ok(managerService.imagePreview());

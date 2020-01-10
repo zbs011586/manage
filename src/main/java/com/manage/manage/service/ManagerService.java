@@ -121,6 +121,10 @@ public class ManagerService {
         return HttpResponse.OK(new PageInfo(maps));
     }
 
+    public HttpResponse imageDel(int id){
+        imageDao.imageDel(id);
+        return HttpResponse.OK("删除成功");
+    }
     public HttpResponse imagePreview(){
         List<Image> images = imageDao.imagePreview();
         return HttpResponse.OK(images);

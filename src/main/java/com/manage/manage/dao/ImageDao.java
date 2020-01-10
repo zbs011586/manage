@@ -16,4 +16,5 @@ public interface ImageDao extends Mapper<Image> {
 
     List<Image> imagePreview();
 
+    void imageDel(@Param("id") int id);
 }

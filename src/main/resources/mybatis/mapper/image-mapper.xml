@@ -8,6 +8,10 @@
        order by sort asc,create_time desc
    </select>
 
+    <delete id="imageDel" parameterType="Integer">
+        delete from t_image where id=#{id}
+    </delete>
+
     <update id="imageCancel">
         update t_image set status=1,sort=10 where status=0
     </update>
