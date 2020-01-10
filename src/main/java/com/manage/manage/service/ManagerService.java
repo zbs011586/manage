@@ -150,6 +150,11 @@ public class ManagerService {
         return HttpResponse.OK(new PageInfo(advice));
     }
 
+    public HttpResponse noticeDel(int id){
+        noticeDao.noticeDel(id);
+        return HttpResponse.OK("删除成功");
+    }
+
     public HttpResponse noticeSet(int id) {
         //先把所有的通知状态都设定为未选中 status=1
         noticeDao.updateAllStatus();

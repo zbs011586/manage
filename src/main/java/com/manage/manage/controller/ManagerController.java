@@ -43,6 +43,11 @@ public class ManagerController {
         return ResponseEntity.ok(managerService.noticeSet(param.getId()));
     }
 
+    @PostMapping("/notice/del")
+    public ResponseEntity noticeDel(@RequestBody ManageParam param){
+        return ResponseEntity.ok(managerService.noticeDel(param.getId()));
+    }
+
     @PostMapping("/advice/list")
     public ResponseEntity adviceList(@RequestBody ManageParam param){
         return ResponseEntity.ok(managerService.adviceList(param.getPageNum(),param.getPageSize()));

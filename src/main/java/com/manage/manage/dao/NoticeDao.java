@@ -13,4 +13,6 @@ public interface NoticeDao extends Mapper<Notice> {
     void updateAllStatus();
 
     void updateOneStatus(@Param("id")int id);
+
+    void noticeDel(@Param("id")int id);
 }

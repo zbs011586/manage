@@ -7,6 +7,10 @@
             order by status asc,create_time desc
     </select>
 
+    <delete id="noticeDel" parameterType="Integer">
+        delete from t_notice where id=#{id}
+    </delete>
+
     <update id="updateAllStatus">
         update t_notice set status=1
     </update>
