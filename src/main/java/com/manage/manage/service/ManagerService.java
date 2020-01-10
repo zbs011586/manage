@@ -126,11 +126,10 @@ public class ManagerService {
         return HttpResponse.OK(images);
     }
 
-    public HttpResponse imageSet(List<JSONObject> param) {
+    public HttpResponse imageSet(List<Integer> ids) {
         imageDao.imageCancel();
-        for (int i = 0; i < param.size(); i++) {
-            JSONObject object = param.get(i);
-            imageDao.imageSet(object.getInteger("id"),i+1,object.getString("url"));
+        for (int i = 0; i < ids.size(); i++) {
+            imageDao.imageSet(ids.get(i),i+1);
         }
         return HttpResponse.OK("设定轮播图成功");
     }

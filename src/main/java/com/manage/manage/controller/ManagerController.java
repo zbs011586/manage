@@ -54,8 +54,8 @@ public class ManagerController {
     }
 
     @PostMapping("/image/set")
-    public ResponseEntity imageSet(@RequestBody List<JSONObject> param){
-        return ResponseEntity.ok(managerService.imageSet(param));
+    public ResponseEntity imageSet(@RequestBody ManageParam param){
+        return ResponseEntity.ok(managerService.imageSet(param.getIds()));
     }
 
     @PostMapping("/image/preview")
