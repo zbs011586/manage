@@ -23,5 +23,4 @@ public class Image {
 
     private Date createTime;
 
-    private String url;
 }
