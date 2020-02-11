@@ -1,7 +1,7 @@
 package com.manage.manage.controller;
 
-import com.alibaba.fastjson.JSONObject;
 import com.manage.manage.bean.Question;
+import com.manage.manage.bean.UserParam;
 import com.manage.manage.commons.IgnoreAuth;
 import com.manage.manage.param.ManageParam;
 import com.manage.manage.service.ManagerService;
@@ -13,7 +13,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.servlet.http.HttpServletRequest;
-import java.util.List;
 
 @RequestMapping("/manage")
 @RestController
@@ -110,4 +109,10 @@ public class ManagerController {
     public ResponseEntity questionDelete(@RequestBody Question param){
         return ResponseEntity.ok(managerService.questionDelete(param));
     }
+
+    @PostMapping("/test/data")
+    public ResponseEntity testData(@RequestBody UserParam param){
+        return ResponseEntity.ok(managerService.testData(param));
+    }
+
 }

@@ -48,8 +48,17 @@ public class ManagerService {
     @Autowired
     private QuestionDao questionDao;
 
+    @Autowired
+    private TestDataDao testDataDao;
+
     public HttpResponse questionList(){
         return HttpResponse.OK(questionDao.selectAll());
+    }
+
+    public HttpResponse testData(UserParam param){
+        TestData build = TestData.builder().cid(param.getCid()).name(param.getName()).openId(param.getOpenId()).status(0).build();
+        testDataDao.insert(build);
+        return HttpResponse.OK("测试账号绑定成功");
     }
 
     public HttpResponse questionDelete(Question param){
