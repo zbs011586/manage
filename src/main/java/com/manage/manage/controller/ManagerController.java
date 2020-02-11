@@ -110,6 +110,7 @@ public class ManagerController {
         return ResponseEntity.ok(managerService.questionDelete(param));
     }
 
+    @IgnoreAuth
     @PostMapping("/test/data")
     public ResponseEntity testData(@RequestBody UserParam param){
         return ResponseEntity.ok(managerService.testData(param));
