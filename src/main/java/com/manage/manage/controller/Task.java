@@ -24,8 +24,8 @@ public class Task {
     @Autowired
     private TestDataDao testDataDao;
 
-    @Scheduled(cron = "*/5 * * * * ?")
-    public void testData() {
+    //@Scheduled(cron = "*/5 * * * * ?")
+    /**public void testData() {
         List<TestData> testData = testDataDao.selectAll();
         for (TestData data : testData) {
             if (data.getStatus() == 0){
@@ -33,8 +33,8 @@ public class Task {
                 RestTemplate template = new RestTemplate();
                 HttpHeaders httpHeaders = new HttpHeaders();
                 JSONObject object = new JSONObject();
-                object.put("cid",data.getCid());
-                object.put("name",data.getName());
+                object.put("usercid",data.getCid());
+                object.put("username",data.getName());
                 object.put("openId",data.getOpenId());
                 HttpEntity entity = new HttpEntity(object, httpHeaders);
                 ResponseEntity<String> responseEntity = template.postForEntity("http://19.120.74.73:8091/yueshengshi/provident/online/test/data", entity, String.class);
@@ -46,5 +46,5 @@ public class Task {
                 }
             }
         }
-    }
+    }*/
 }
